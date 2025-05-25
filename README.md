@@ -22,7 +22,7 @@ This will spin up:
 
 3. **Generate a tracking number**
 ```bash
-curl "http://localhost:8080/api/v1/tracking/generate?origin_country_id=US&destination_country_id=IN&customer_slug=amazon"
+curl "http://localhost:8080/next-tracking-number?origin_country_id=MY&destination_country_id=ID&weight=1.234&created_at=2018-11-20T19%3A29%3A32%2B08%3A00&customer_id=de619854-b59b-425e-9db4-943979e1bd49&customer_name=RedBox%20Logistics&customer_slug=redbox-logistics"
 ```
 
 ## 🛑 Stop the application
