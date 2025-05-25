@@ -1,14 +1,10 @@
-# Use official OpenJDK 21 base image
-FROM eclipse-temurin:21-jdk-jammy
-
-# Set working directory inside container
+FROM maven:3.9.4-eclipse-temurin-21 AS build
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copy the built jar file from target directory to container
-COPY target/tracking-number-service-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose port 8080
+FROM eclipse-temurin:21-jdk-jammy
+WORKDIR /app
+COPY --from=build /app/target/tracking-number-service-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Run the jar
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
