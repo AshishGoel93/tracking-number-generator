@@ -1,7 +1,6 @@
 package com.assignment.tracking.entity;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
@@ -11,9 +10,8 @@ import java.time.Instant;
 @AllArgsConstructor
 @Table("audit_log")
 public class AuditLog {
-    @Id
-    private String id;
 
+    private String id;
     private String trackingNumber;
     private String originCountryId;
     private String destinationCountryId;
